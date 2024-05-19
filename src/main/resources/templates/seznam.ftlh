@@ -11,6 +11,8 @@
     <link rel="icon" type="image/png" href="/images/favicon.png">
 </head>
 <body>
+<!--Uprav šablonu seznam.html tak, aby zobrazovala vizitky z modelu.
+Každá vizitka musí odkazovat na svou stránku s detailem.-->
 <div class="seznam">
     <a href="/detail">
         <div class="vizitka">
