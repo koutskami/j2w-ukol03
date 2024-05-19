@@ -13,19 +13,19 @@
 <body>
 [#list seznamVizitek as vizitka]
     <div class="seznam">
-        <a href="/detail">
+        <a href="/detail/${vizitka?index}">
             <div class="vizitka">
-                <div class="jmeno">${vizitka.jmeno}</div>
-                <div class="firma">${vizitka.firma}</div>
+                <div class="jmeno">[#if vizitka.jmeno??]${vizitka.jmeno}[#else]<em>neuvedeno</em>[/#if]</div>
+                <div class="firma">[#if vizitka.firma??]${vizitka.firma}[#else][/#if]</div>
                 <div class="udaje">
                     <div class="adresa">
-                        <div>${vizitka.ulice}</div>
-                        <div><span>${vizitka.obecPsc}</span></div>
+                        <div>[#if vizitka.ulice??]${vizitka.ulice}[#else][/#if]</div>
+                        <div><span>[#if vizitka.obecPsc??]${vizitka.obecPsc}[#else][/#if]</span></div>
                     </div>
                     <div class="kontakty">
-                        <div><i class="las la-at"></i> <span>${vizitka.email}</span></div>
-                        <div><i class="las la-phone-alt"></i> <span>${vizitka.telefon}</span></div>
-                        <div><i class="las la-globe"></i> <span>${vizitka.web}</span></div>
+                        <div><i class="las la-at"></i> <span>[#if vizitka.email??]${vizitka.email}[#else][/#if]</span></div>
+                        <div><i class="las la-phone-alt"></i> <span>[#if vizitka.telefon??]${vizitka.telefon}[#else][/#if]</span></div>
+                        <div><i class="las la-globe"></i> <span>[#if vizitka.web??]${vizitka.web}[#else][/#if]</span></div>
                     </div>
                 </div>
             </div>

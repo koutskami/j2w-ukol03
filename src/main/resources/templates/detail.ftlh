@@ -11,33 +11,25 @@
     <link rel="icon" type="image/png" href="/images/favicon.png">
 </head>
 <body>
-<!--Uprav šablonu detail.html tak, aby zobrazovala vizitku z modelu.
-    Pro zobrazení mapy použij připravený kód s tagem iframe, který
-    vkládá vloženou mapu Mapy.cz. Jako parametr q se do URL předává adresa,
-    která se má na mapě zobrazit. Tuto adresu je potřeba zakódovat pomocí built-in
-    funkce Freemarkeru url. Místo statického stringu s adresou Czechitas na Václavském náměstí
-    tedy předej property celaAdresa (pozor na to, že už nyní je statický string vložený v
-    interpolaci, tu už tedy do šablony nepřidáváš).-->
-<div class="detail">
-    <div class="vizitka">
-        <div class="jmeno">Dita (Přikrylová) Formánková</div>
-        <div class="firma">Czechitas z. s.</div>
-        <div class="udaje">
-            <div class="adresa">
-                <div>Václavské náměstí 837/11</div>
-                <div><span>11000</span> Praha 1</div>
+        <div class="detail">
+            <div class="vizitka">
+                <div class="jmeno">[#if vizitka.jmeno??]${vizitka.jmeno}[#else]<em>neuvedeno</em>[/#if]</div>
+                <div class="firma">[#if vizitka.firma??]${vizitka.firma}[#else][/#if]</div>
+                <div class="udaje">
+                    <div class="adresa">
+                        <div>[#if vizitka.ulice??]${vizitka.ulice}[#else][/#if]</div>
+                        <div><span>[#if vizitka.obecPsc??]${vizitka.obecPsc}[#else][/#if]</span></div>
+                    </div>
+                    <div class="kontakty">
+                        <div><i class="las la-at"></i> <span>[#if vizitka.email??]${vizitka.email}[#else][/#if]</span></div>
+                        <div><i class="las la-phone-alt"></i> <span>[#if vizitka.telefon??]${vizitka.telefon}[#else][/#if]</span></div>
+                        <div><i class="las la-globe"></i> <span>[#if vizitka.web??]${vizitka.web}[#else][/#if]</span></div>
+                    </div>
+                </div>
             </div>
-            <div class="kontakty">
-                <div><i class="las la-at"></i> <span>dita@czechitas.cs</span></div>
-                <div><i class="las la-phone-alt"></i> <span>+420 800123456</span></div>
-                <div><i class="las la-globe"></i> <span>www.czechitas.cz</span></div>
+            <div class="mapa">
+                <iframe style="border:none" src="https://frame.mapy.cz/?q=${vizitka.celaAdresa?url}" width="100%" height="100%" frameborder="0"></iframe>
             </div>
         </div>
-    </div>
-    <div class="mapa">
-        <iframe style="border:none" src="https://frame.mapy.cz/?q=${"Václavské náměstí 837/11, Praha"?url}" width="100%" height="100%" frameborder="0"></iframe>
-    </div>
-
-</div>
 </body>
 </html>
