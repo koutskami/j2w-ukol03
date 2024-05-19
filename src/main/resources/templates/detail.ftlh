@@ -11,6 +11,13 @@
     <link rel="icon" type="image/png" href="/images/favicon.png">
 </head>
 <body>
+<!--Uprav šablonu detail.html tak, aby zobrazovala vizitku z modelu.
+    Pro zobrazení mapy použij připravený kód s tagem iframe, který
+    vkládá vloženou mapu Mapy.cz. Jako parametr q se do URL předává adresa,
+    která se má na mapě zobrazit. Tuto adresu je potřeba zakódovat pomocí built-in
+    funkce Freemarkeru url. Místo statického stringu s adresou Czechitas na Václavském náměstí
+    tedy předej property celaAdresa (pozor na to, že už nyní je statický string vložený v
+    interpolaci, tu už tedy do šablony nepřidáváš).-->
 <div class="detail">
     <div class="vizitka">
         <div class="jmeno">Dita (Přikrylová) Formánková</div>
@@ -27,13 +34,6 @@
             </div>
         </div>
     </div>
-    <!--Uprav šablonu detail.html tak, aby zobrazovala vizitku z modelu.
-        Pro zobrazení mapy použij připravený kód s tagem iframe, který
-        vkládá vloženou mapu Mapy.cz. Jako parametr q se do URL předává adresa,
-        která se má na mapě zobrazit. Tuto adresu je potřeba zakódovat pomocí built-in
-        funkce Freemarkeru url. Místo statického stringu s adresou Czechitas na Václavském náměstí
-        tedy předej property celaAdresa (pozor na to, že už nyní je statický string vložený v
-        interpolaci, tu už tedy do šablony nepřidáváš).-->
     <div class="mapa">
         <iframe style="border:none" src="https://frame.mapy.cz/?q=${"Václavské náměstí 837/11, Praha"?url}" width="100%" height="100%" frameborder="0"></iframe>
     </div>
